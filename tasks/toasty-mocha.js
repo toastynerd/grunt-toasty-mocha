@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           console.dir(param2);
           done(true);
         });
-      catch(e) {
+      } catch(e) {
         console.dir(e);
         done(true);
       }
