@@ -1,0 +1,13 @@
+{
+  "name": "grunt-toasty-mocha",
+  "description": "a server side grunt mocha test runner that can tell the difference between a test failure and an error",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "mocha": "^1.20.1"
+  }
+}
