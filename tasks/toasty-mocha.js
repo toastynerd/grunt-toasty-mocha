@@ -12,10 +12,15 @@ module.exports = function(grunt) {
 
       var done = this.async();
 
-      mocha.run(function(errCount, param2) {
-        console.log(errCount);
-        console.dir(param2);
+      try {
+        mocha.run(function(errCount, param2) {
+          console.log(errCount);
+          console.dir(param2);
+          done(true);
+        });
+      catch(e) {
+        console.dir(e);
         done(true);
-      });
+      }
   });
 };
