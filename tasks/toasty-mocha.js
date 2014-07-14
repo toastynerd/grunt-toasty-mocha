@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     var options = this.options(),
       mocha = new Mocha(mocha);
 
-      this.fileSrc.forEach(mocha.addFile.bind(mocha));
+      this.filesSrc.forEach(mocha.addFile.bind(mocha));
 
       var done = this.async();
 
