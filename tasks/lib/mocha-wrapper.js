@@ -21,7 +21,7 @@ function MochaWrapper(params) {
   if (mocha.files.length)
     mocha.loadFiles();
 
-  this.run = function(gruntDone) {
+  this.run = function(gruntDone, gruntProcess) {
     //setting up mocha suite
     var suite = mocha.suite;
     var options = mocha.options;
@@ -32,7 +32,7 @@ function MochaWrapper(params) {
     process.removeAllListeners('uncaughtException');
     var unmanageExceptions = function() {
       uncaughtExceptionHandlers.forEach(
-          process.on.bind(process, 'uncaughtException'));
+          gruntProcess.on.bind(process, 'uncaughtException'));
     };
 
     var domain = domain.create();

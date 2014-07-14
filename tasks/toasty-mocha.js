@@ -11,6 +11,6 @@ module.exports = function(grunt) {
 
     var mochaWrapper = new MochaWrapper({files: files, options: options});
 
-    mochaWrapper.run(done);
+    mochaWrapper.run(done, process);
   });
 };
