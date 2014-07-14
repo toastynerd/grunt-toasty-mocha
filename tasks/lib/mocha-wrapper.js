@@ -25,7 +25,7 @@ function MochaWrapper(params) {
     //setting up mocha suite
     var suite = mocha.suite;
     var options = mocha.options;
-    var runner = Mocha.runner(suite); 
+    var runner = Mocha.Runner(suite); 
     var reporter = mocha._reporter(runner);
 
     var uncaughtExceptionHandlers = process.listeners('uncaughtException');
