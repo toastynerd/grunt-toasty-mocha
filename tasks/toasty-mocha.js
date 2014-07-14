@@ -1,26 +1,16 @@
 "use strict";
 
+var MochaWrapper = require('./lib/mocha-wrapper');
+
 module.exports = function(grunt) {
-  var path = require('path'),
-    Mocha = require('mocha');
-
   grunt.registerMultiTask('toastymocha', 'Run tests with mocha', function() {
-    var options = this.options(),
-      mocha = new Mocha(mocha);
+    var options = this.options();
+    var files = this.filesSrc;
 
-      this.filesSrc.forEach(mocha.addFile.bind(mocha));
+    var done = this.async();
 
-      var done = this.async();
+    var mochaWrapper = new MochaWrapper({files: files, options: options});
 
-      try {
-        mocha.run(function(errCount, param2) {
-          console.log(errCount);
-          console.dir(param2);
-          done(true);
-        });
-      } catch(e) {
-        console.dir(e);
-        done(true);
-      }
+    mochaWrapper.run(done);
   });
 };
