@@ -45,8 +45,8 @@ function MochaWrapper(params) {
     };
 
     var mochaDomain = domain.create();
-    mochaDomain.on('error', function(error) {
-      console.dir(error);
+    mochaDomain.on('error', function(err) {
+      console.dir(err);
       runner.uncaught.bind(runner);
     });
 
