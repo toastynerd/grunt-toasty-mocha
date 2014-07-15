@@ -52,7 +52,7 @@ function MochaWrapper(params) {
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === 0);
 
-      gruntDone(withoutErrors);
+      gruntDone(true);
     };
 
     mochaDomain.run(function() {
