@@ -37,23 +37,22 @@ function MochaWrapper(params) {
     if (options.growl)
       mocha._growl(runner, reporter);
 
-//    var uncaughtexceptionhandlers = process.listeners('uncaughtexception');
-//    process.removealllisteners('uncaughtexception');
-//    var unmanageexceptions = function() {
-//      uncaughtExceptionHandlers.forEach(
-//          process.on.bind(process, 'uncaughtException'));
-//    };
+    var uncaughtExceptionHandlers = process.listeners('uncaughtException');
+    process.removeAllListeners('uncaughtException');
+    var unmanageExceptions = function() {
+      uncaughtExceptionHandlers.forEach(
+          process.on.bind(process, 'uncaughtException'));
+    };
 
     var mochaDomain = domain.create();
     mochaDomain.on('error', function(err) {
       console.log('HOLY CRAP IT\'S AN ERROR');
       console.dir(err);
-      throw new Error("GAHHHHHHHH");
+      runner.uncaught.bind(runner);
     });
 
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === 0);
-  
       console.log('number of errors: ' + errCount);
 
       gruntDone(withoutErrors);
