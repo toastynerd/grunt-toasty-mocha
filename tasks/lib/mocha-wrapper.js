@@ -25,10 +25,13 @@ function MochaWrapper(params) {
     //setting up mocha suite
     console.log("starting the fire");
     var suite = mocha.suite;
+    console.log("1");
     var options = mocha.options;
+    console.log("2");
     var runner = Mocha.Runner(suite); 
+    console.log("3");
     var reporter = new mocha._reporter(runner);
-    console.log("did we start the fire?");
+    console.log("4");
 
     runner.ignoreLeaks = options.ignoreLeaks;
     runner.asyncOnly = options.asyncOnly;
@@ -38,7 +41,6 @@ function MochaWrapper(params) {
       runner.globals(options.globals);
     if (options.growl)
       mocha._growl(runner, reporter);
-    console.log("pretty sure we started the fire");
 
     var uncaughtExceptionHandlers = process.listeners('uncaughtException');
     process.removeAllListeners('uncaughtException');
@@ -59,7 +61,6 @@ function MochaWrapper(params) {
 
     domain.run(function() {
       runner.run(mochaDone);
-      console.log("spark");
     });
   };
 }
