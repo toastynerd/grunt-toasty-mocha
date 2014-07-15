@@ -44,8 +44,8 @@ function MochaWrapper(params) {
           process.on.bind(process, 'uncaughtException'));
     };
 
-    var domain = domain.create();
-    domain.on('error', runner.uncaught.bind(runner));
+    var mochaDomain = domain.create();
+    mochaDomain.on('error', runner.uncaught.bind(runner));
 
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === 0);
@@ -54,7 +54,7 @@ function MochaWrapper(params) {
       gruntDone(withoutErrors);
     };
 
-    domain.run(function() {
+    mochaDomain.run(function() {
       runner.run(mochaDone);
     });
   };
