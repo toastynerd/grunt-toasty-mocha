@@ -48,10 +48,12 @@ function MochaWrapper(params) {
     mochaDomain.on('error', function(err) {
       console.log('HOLY CRAP IT\'S AN ERROR');
       console.dir(err);
+      throw new Error("GAHHHHHHHH");
     });
 
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === 0);
+  
       console.log('number of errors: ' + errCount);
 
       gruntDone(withoutErrors);
