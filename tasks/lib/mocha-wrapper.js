@@ -14,7 +14,7 @@ function MochaWrapper(params) {
     return path.resolve(file);
   });
 
-  var Mocha = require('Mocha');
+  var Mocha = require('mocha');
   var mocha = new Mocha(params.options);
 
   paths.forEach(mocha.addFile.bind(mocha));
