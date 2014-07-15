@@ -45,7 +45,10 @@ function MochaWrapper(params) {
     };
 
     var mochaDomain = domain.create();
-    mochaDomain.on('error', runner.uncaught.bind(runner));
+    mochaDomain.on('error', function(error) {
+      console.dir(error);
+      runner.uncaught.bind(runner);
+    });
 
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === 0);
