@@ -46,6 +46,7 @@ function MochaWrapper(params) {
 
     var mochaDomain = domain.create();
     mochaDomain.on('error', function(err) {
+      console.log('HOLY CRAP IT\'S AN ERROR');
       console.dir(err);
       runner.uncaught.bind(runner);
     });
