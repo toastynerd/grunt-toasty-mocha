@@ -50,7 +50,7 @@ function MochaWrapper(params) {
     });
 
     var mochaDone = function(errCount) {
-      var withoutErrors = (errCount === failures);
+      var withoutErrors = (errCount === runner.failures);
       console.dir(runner);
       gruntDone(withoutErrors);
     };
