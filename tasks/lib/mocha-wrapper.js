@@ -23,15 +23,10 @@ function MochaWrapper(params) {
 
   this.run = function(gruntDone) {
     //setting up mocha suite
-    console.log("starting the fire");
     var suite = mocha.suite;
-    console.log("1");
     var options = mocha.options;
-    console.log("2");
-    var runner = Mocha.Runner(suite); 
-    console.log("3");
+    var runner = new Mocha.Runner(suite); 
     var reporter = new mocha._reporter(runner);
-    console.log("4");
 
     runner.ignoreLeaks = options.ignoreLeaks;
     runner.asyncOnly = options.asyncOnly;
