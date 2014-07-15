@@ -51,6 +51,8 @@ function MochaWrapper(params) {
 
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === runner.failures);
+
+      unmanageExceptions();
       gruntDone(withoutErrors);
     };
 
