@@ -46,14 +46,11 @@ function MochaWrapper(params) {
 
     var mochaDomain = domain.create();
     mochaDomain.on('error', function(err) {
-      console.log('HOLY CRAP IT\'S AN ERROR');
-      console.dir(err);
       runner.uncaught.bind(runner);
     });
 
     var mochaDone = function(errCount) {
       var withoutErrors = (errCount === 0);
-      console.log('number of errors: ' + errCount);
 
       gruntDone(withoutErrors);
     };
