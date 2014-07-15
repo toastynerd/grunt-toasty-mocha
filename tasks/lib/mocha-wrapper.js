@@ -50,9 +50,9 @@ function MochaWrapper(params) {
     });
 
     var mochaDone = function(errCount) {
-      var withoutErrors = (errCount === 0);
+      var withoutErrors = (errCount === failures);
       console.dir(runner);
-      gruntDone(true);
+      gruntDone(withoutErrors);
     };
 
     mochaDomain.run(function() {
