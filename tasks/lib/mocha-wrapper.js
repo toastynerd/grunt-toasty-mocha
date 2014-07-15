@@ -28,7 +28,7 @@ function MochaWrapper(params) {
     var options = mocha.options;
     var runner = Mocha.Runner(suite); 
     var reporter = new mocha._reporter(runner);
-    console.log("did we start the fire?"):
+    console.log("did we start the fire?");
 
     runner.ignoreLeaks = options.ignoreLeaks;
     runner.asyncOnly = options.asyncOnly;
