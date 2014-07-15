@@ -8,13 +8,13 @@ https://gregrperkins/grunt-mocha-hack
 
 var domain = require('domain');
 var path = require('path');
+var Mocha = require('mocha');
 
 function MochaWrapper(params) {
   var paths = params.files.map(function(file) {
     return path.resolve(file);
   });
 
-  var Mocha = require('mocha');
   var mocha = new Mocha(params.options);
 
   paths.forEach(mocha.addFile.bind(mocha));
@@ -26,7 +26,8 @@ function MochaWrapper(params) {
     var suite = mocha.suite;
     var options = mocha.options;
     var runner = Mocha.Runner(suite); 
-    var reporter = mocha._reporter(runner);
+    var reporter = new mocha._reporter(runner);
+
     runner.ignoreLeaks = options.ignoreLeaks;
     runner.asyncOnly = options.asyncOnly;
     if (options.grep) 
